@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheet Habit Tracker | Build Consistency & Achieve Your Goals</title>
+    <meta name="description" content="The ultimate, automated Google Sheet habit tracker. Visual progress bars, weekly analytics, zero monthly subscriptions. Get instant lifetime access today!">
+    
+    <!-- Meta Pixel Script Placeholder -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      fbq('init', 'YOUR_META_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Script -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              emerald: {
+                50: '#ecfdf5',
+                100: '#d1fae5',
+                400: '#34d399',
+                500: '#10b981',
+                600: '#059669',
+                700: '#047857',
+              },
+              slate: {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                200: '#e2e8f0',
+                700: '#334155',
+                800: '#1e293b',
+                900: '#0f172a',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Font Awesome Icons & Custom Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-500 selection:text-white pb-20 md:pb-0">
+
+    <!-- 1. ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white py-2 px-4 text-xs md:text-sm font-medium text-center sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1 bg-emerald-900/40 px-2 py-0.5 rounded-full text-emerald-100 text-xs font-bold uppercase tracking-wide">
+                <i class="fa-solid fa-bolt text-yellow-300"></i> Limited Offer
+            </span>
+            <span>🔥 <strong>70% OFF Discount Ending Soon!</strong> Get Lifetime Access for just <strong>$9</strong></span>
+            <span class="hidden sm:inline-block">•</span>
+            <span class="inline-flex items-center gap-1 font-mono font-bold bg-slate-900/30 px-2 py-0.5 rounded text-emerald-200">
+                <i class="fa-regular fa-clock"></i> <span class="countdown-timer">14:59</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <nav class="border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-9 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold text-xl shadow-sm">
+                    <i class="fa-solid fa-table-cells"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-lg text-slate-900 tracking-tight flex items-center gap-1.5">
+                        HabitTrack <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-semibold border border-emerald-300">Pro</span>
+                    </span>
+                    <span class="block text-[11px] text-slate-500 font-medium">Google Sheets Automated System</span>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#features" class="hover:text-emerald-600 transition-colors">Features</a>
+                <a href="#comparison" class="hover:text-emerald-600 transition-colors">Why Google Sheets?</a>
+                <a href="#setup" class="hover:text-emerald-600 transition-colors">How It Works</a>
+                <a href="#faq" class="hover:text-emerald-600 transition-colors">FAQ</a>
+            </div>
+
+            <!-- Navbar CTA Button -->
+            <div class="flex items-center gap-3">
+                <a href="#pricing" class="cta-btn hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm px-4 py-2.5 rounded-xl transition-all shadow-md hover:shadow-emerald-600/30">
+                    <span>Get Access ($9)</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. HERO SECTION -->
+    <section class="relative pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden bg-grid-pattern">
+        <!-- Background Soft Radial Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-200/40 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-sky-200/40 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <!-- Trust Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-emerald-300 text-emerald-800 text-xs sm:text-sm font-semibold mb-6 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <i class="fa-solid fa-star text-amber-500"></i>
+                    <span>Rated 4.9/5 by 1,200+ Consistency Seekers</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
+                    Master Your Daily Habits Without <span class="text-gradient-emerald">Bloated Apps & Monthly Fees</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed mb-8">
+                    The automated, zero-friction Google Sheet tracker that turns your daily routines into visual progress bars, streak counters, and weekly analytics in <span class="text-slate-900 font-semibold underline decoration-emerald-500 decoration-2">60 seconds a day</span>.
+                </p>
+
+                <!-- Value Bullets -->
+                <div class="flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-sm sm:text-base text-slate-700 font-medium mb-8">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i> Lifetime Access (No Subscription)
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i> Works on Mobile & Desktop
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i> 100% Automated Charts
+                    </span>
+                </div>
+
+                <!-- Hero Primary CTA -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+                    <a href="#pricing" class="cta-btn btn-pulse w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-lg px-8 py-4 rounded-xl transition-all shadow-xl hover:shadow-emerald-600/30 transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Get Instant Access Now — Just $9</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Guarantee & Instant Delivery Note -->
+                <div class="flex items-center justify-center gap-4 text-xs sm:text-sm text-slate-500">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved text-emerald-600"></i> 30-Day Money-Back Guarantee
+                    </span>
+                    <span>•</span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-cloud-arrow-down text-emerald-600"></i> Instant Copy Link
+                    </span>
+                </div>
+            </div>
+
+            <!-- Hero Main Mockup Frame -->
+            <div class="mt-8 relative max-w-5xl mx-auto">
+                <div class="dashboard-frame glow-emerald-lg">
+                    <div class="bg-slate-100 rounded-t-lg p-2 sm:p-3 flex items-center justify-between border-b border-slate-200">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+                            <span class="ml-2 text-xs font-mono text-slate-600 hidden sm:inline-block">Google Sheets — 2027 Habit Tracker Dashboard.xlsx</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-emerald-700 font-semibold bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-200">
+                            <i class="fa-solid fa-arrows-rotate animate-spin text-[10px]"></i> Auto-Calculating Progress
+                        </div>
+                    </div>
+                    <div class="dashboard-frame-inner shadow-2xl">
+                        <img src="./assets/{DF832F96-86F9-47F1-BF50-2137C0B72102}.png" 
+                             alt="Google Sheet Habit Tracker Full Interactive Dashboard" 
+                             class="w-full h-auto object-cover rounded-b-lg border border-slate-200">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SOCIAL PROOF TRUST BAR -->
+    <section class="border-y border-slate-200 bg-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 light-card rounded-xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600">1,200+</div>
+                    <div class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">Active Trackers</div>
+                </div>
+                <div class="p-4 light-card rounded-xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-sky-600">100%</div>
+                    <div class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">Private & Customisable</div>
+                </div>
+                <div class="p-4 light-card rounded-xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600">$0</div>
+                    <div class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">Monthly Fees Ever</div>
+                </div>
+                <div class="p-4 light-card rounded-xl">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-500">4.9 / 5.0</div>
+                    <div class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">Customer Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PROBLEM VS SOLUTION GRID SECTION -->
+    <section id="comparison" class="py-20 lg:py-28 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-600 mb-3">Why Traditional Apps Fail You</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Stop Paying $12/Month For Habit Apps You Abandon in a Week</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Bad Alternative (Bloated Apps) -->
+                <div class="light-card rounded-2xl p-6 sm:p-8 border-red-200 bg-red-50/50">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-red-600 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-xmark"></i> Typical Habit Apps
+                        </h3>
+                        <span class="text-xs font-mono bg-red-100 text-red-700 px-3 py-1 rounded-full border border-red-200 font-semibold">$120+/year recurring</span>
+                    </div>
+                    <ul class="space-y-4 text-sm sm:text-base text-slate-700">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-xmark text-red-500 mt-1"></i>
+                            <span>Continuous recurring subscriptions that charge you forever.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-xmark text-red-500 mt-1"></i>
+                            <span>Cluttered interfaces with paywalled basic features.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-xmark text-red-500 mt-1"></i>
+                            <span>Your data is stored on external servers with privacy risks.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-xmark text-red-500 mt-1"></i>
+                            <span>Hard to export, print, or analyze custom habit trends.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Our Solution (Google Sheet Habit Tracker) -->
+                <div class="light-card rounded-2xl p-6 sm:p-8 border-2 border-emerald-500 bg-emerald-50/60 relative shadow-xl glow-emerald">
+                    <div class="absolute -top-3 right-6 bg-emerald-600 text-white text-xs font-extrabold uppercase px-3 py-1 rounded-full shadow-md">
+                        Recommended Choice
+                    </div>
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-emerald-800 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i> HabitTrack Pro Sheet
+                        </h3>
+                        <span class="text-xs font-mono bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full border border-emerald-300 font-bold">$9 One-Time Payment</span>
+                    </div>
+                    <ul class="space-y-4 text-sm sm:text-base text-slate-800 font-medium">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emerald-600 mt-1 font-extrabold"></i>
+                            <span><strong>One-time payment</strong> for lifetime ownership. Zero monthly charges.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emerald-600 mt-1 font-extrabold"></i>
+                            <span><strong>Automated donut charts, streak counters & weekly stats</strong> that update instantly.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emerald-600 mt-1 font-extrabold"></i>
+                            <span><strong>100% private in your Google Drive</strong>. Nobody sees your habits.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emerald-600 mt-1 font-extrabold"></i>
+                            <span><strong>Fully customizable</strong> colors, habit names, goals, and monthly tabs.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CORE FEATURES SHOWCASE SECTION -->
+    <section id="features" class="py-20 bg-white relative border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-600 mb-3">Designed for Maximum Clarity</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Everything You Need to Build Lasting Habits</p>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">Clean visual dashboards designed to give you instant dopamine boosts as you check off your daily goals.</p>
+            </div>
+
+            <!-- SUBSECTION 1: LANDSCAPE IMAGES SIDE BY SIDE -->
+            <div class="mb-16">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="w-3 h-3 rounded-full bg-emerald-600"></span>
+                    <h3 class="text-xl font-extrabold text-slate-900">Weekly & Monthly Overview (Landscape Dashboards)</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Landscape Card 1: Weekly Progress & Analytics -->
+                    <div class="light-card light-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 text-xl mb-4 shadow-sm">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Weekly Progress & Task Summary</h4>
+                            <p class="text-slate-600 text-sm mb-6">
+                                Track completion rates across Weeks 1 through 4. Automatic donut charts and weekly task highlights reveal your peak performance days.
+                            </p>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-2 shadow-inner">
+                            <img src="./assets/{2F0EB820-79F2-430F-B146-F6BC1415A527}.png" 
+                                 alt="Weekly Progress and Task Summary Landscape Image" 
+                                 class="w-full h-auto object-cover rounded-lg border border-slate-200">
+                        </div>
+                    </div>
+
+                    <!-- Landscape Card 2: Monthly Progress Checklist -->
+                    <div class="light-card light-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-sky-100 border border-sky-200 flex items-center justify-center text-sky-700 text-xl mb-4 shadow-sm">
+                                <i class="fa-regular fa-calendar-check"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Monthly Progress & Checklist</h4>
+                            <p class="text-slate-600 text-sm mb-6">
+                                Stay on top of monthly habit targets with side-by-side completion metrics, total pending tasks, and visual progress ring indicators.
+                            </p>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-2 shadow-inner">
+                            <img src="./assets/{CDB6ABBD-29D4-4CB9-A65F-D836F20DBE85}.png" 
+                                 alt="Monthly Progress Checklist Landscape Image" 
+                                 class="w-full h-auto object-cover rounded-lg border border-slate-200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUBSECTION 2: PORTRAIT IMAGES SIDE BY SIDE -->
+            <div>
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                    <h3 class="text-xl font-extrabold text-slate-900">Habit Metrics & Progress (Portrait Detail Views)</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Portrait Card 1: Daily Progress & Top 10 Habits -->
+                    <div class="light-card light-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-700 text-xl mb-4 shadow-sm">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Daily Progress & Top 10 Habits</h4>
+                            <p class="text-slate-600 text-sm mb-6">
+                                Automatically ranks your habits by completion percentage (up to 93.55%). Keep your top habits visible at a single glance.
+                            </p>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-4 shadow-inner flex items-center justify-center">
+                            <img src="./assets/{208B87E7-1FFD-44AD-B496-F2E823C25719}.png" 
+                                 alt="Daily Progress and Top 10 Habits Portrait View" 
+                                 class="max-h-[440px] w-auto object-contain rounded-lg border border-slate-200 shadow">
+                        </div>
+                    </div>
+
+                    <!-- Portrait Card 2: Habit Progress Bars -->
+                    <div class="light-card light-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 text-xl mb-4 shadow-sm">
+                                <i class="fa-solid fa-bars-progress"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Automated Habit Completion Bars</h4>
+                            <p class="text-slate-600 text-sm mb-6">
+                                Real-time progress bars fill up as you mark habits complete. Displays total completed days out of 31 and remaining days left.
+                            </p>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-4 shadow-inner flex items-center justify-center">
+                            <img src="./assets/{4A23E2D0-7244-4E5A-BA70-3C8345F47948}.png" 
+                                 alt="Habit Progress Completion Bars Portrait View" 
+                                 class="max-h-[440px] w-auto object-contain rounded-lg border border-slate-200 shadow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 3-STEP SETUP PROCESS SECTION -->
+    <section id="setup" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-600 mb-3">Zero Tech Skills Needed</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Get Started in 3 Simple Steps</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="light-card rounded-2xl p-8 text-center relative">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white font-extrabold text-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-600/30">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Secure One-Time Purchase</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Complete your 60-second checkout for just $9. No accounts, no password setup, no subscriptions.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="light-card rounded-2xl p-8 text-center relative">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white font-extrabold text-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-600/30">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Click "Make a Copy"</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Open the instant Google Drive link and click "Make a Copy". The entire template saves directly into your personal Google Drive.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="light-card rounded-2xl p-8 text-center relative">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white font-extrabold text-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-600/30">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Start Building Consistency</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Type in your personal habits, check the daily boxes, and let the sheet automatically calculate your progress charts!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. CUSTOMER TESTIMONIALS SECTION -->
+    <section class="py-20 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="flex items-center justify-center gap-1 text-amber-500 mb-3 text-lg">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Loved by People Who Value Simplicity</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="light-card rounded-2xl p-6 flex flex-col justify-between">
+                    <p class="text-slate-600 text-sm leading-relaxed italic mb-6">
+                        "I used to pay $9.99 every single month for a habit app that kept breaking. This Google Sheet setup is so clean and satisfying. Checking off my morning routine gives me such a boost!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-200">
+                        <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center border border-emerald-300">
+                            MK
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900 flex items-center gap-1.5">
+                                Marcus K. <i class="fa-solid fa-circle-check text-emerald-600 text-xs" title="Verified Buyer"></i>
+                            </div>
+                            <div class="text-xs text-slate-500">Software Engineer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="light-card rounded-2xl p-6 flex flex-col justify-between">
+                    <p class="text-slate-600 text-sm leading-relaxed italic mb-6">
+                        "The weekly analytics donut chart is a game changer. I can see my progress over 4 weeks without having to calculate anything manually. Best $9 investment this year."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-200">
+                        <div class="w-10 h-10 rounded-full bg-sky-100 text-sky-700 font-bold flex items-center justify-center border border-sky-300">
+                            SR
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900 flex items-center gap-1.5">
+                                Sarah R. <i class="fa-solid fa-circle-check text-emerald-600 text-xs" title="Verified Buyer"></i>
+                            </div>
+                            <div class="text-xs text-slate-500">Fitness Coach</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="light-card rounded-2xl p-6 flex flex-col justify-between">
+                    <p class="text-slate-600 text-sm leading-relaxed italic mb-6">
+                        "I opened the sheet on my phone via the Google Sheets app and created a home screen shortcut. Now I update my habits in 10 seconds right before bed!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-200">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center border border-purple-300">
+                            DL
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900 flex items-center gap-1.5">
+                                David L. <i class="fa-solid fa-circle-check text-emerald-600 text-xs" title="Verified Buyer"></i>
+                            </div>
+                            <div class="text-xs text-slate-500">Entrepreneur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. INTERACTIVE FAQ ACCORDION SECTION -->
+    <section id="faq" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-600 mb-3">Got Questions?</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Frequently Asked Questions</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item light-card rounded-xl border border-slate-200">
+                    <button class="faq-header w-full px-6 py-5 text-left flex items-center justify-between font-bold text-base sm:text-lg text-slate-900 hover:text-emerald-600 transition-colors">
+                        <span>Do I need a paid Google Sheets account to use this?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-emerald-600 text-sm"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-600 text-sm leading-relaxed">
+                        No! You only need a free Google account (like standard @gmail.com). Google Sheets is 100% free to use on desktop, tablet, or mobile.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item light-card rounded-xl border border-slate-200">
+                    <button class="faq-header w-full px-6 py-5 text-left flex items-center justify-between font-bold text-base sm:text-lg text-slate-900 hover:text-emerald-600 transition-colors">
+                        <span>Are there any recurring subscription fees?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-emerald-600 text-sm"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-600 text-sm leading-relaxed">
+                        Never. You pay a one-time fee of $9 for lifetime access. You get all template updates and future tabs with no monthly or annual billing.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item light-card rounded-xl border border-slate-200">
+                    <button class="faq-header w-full px-6 py-5 text-left flex items-center justify-between font-bold text-base sm:text-lg text-slate-900 hover:text-emerald-600 transition-colors">
+                        <span>Can I track habits on my mobile phone?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-emerald-600 text-sm"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-600 text-sm leading-relaxed">
+                        Yes! Download the free Google Sheets app on iOS or Android. You can add a widget or shortcut to your phone home screen for instant 1-tap habit checking.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item light-card rounded-xl border border-slate-200">
+                    <button class="faq-header w-full px-6 py-5 text-left flex items-center justify-between font-bold text-base sm:text-lg text-slate-900 hover:text-emerald-600 transition-colors">
+                        <span>How do I receive the product after buying?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-emerald-600 text-sm"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-600 text-sm leading-relaxed">
+                        Immediately after checkout, you will be redirected to the access page and sent an email with the instant Google Drive template copy link.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item light-card rounded-xl border border-slate-200">
+                    <button class="faq-header w-full px-6 py-5 text-left flex items-center justify-between font-bold text-base sm:text-lg text-slate-900 hover:text-emerald-600 transition-colors">
+                        <span>What if I'm not satisfied with the template?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon text-emerald-600 text-sm"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 text-slate-600 text-sm leading-relaxed">
+                        We offer a 30-day 100% money-back guarantee. If you don't find it helpful for building habits, simply email us for a full refund.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. HIGH-URGENCY OFFER & PRICING CARD -->
+    <section id="pricing" class="py-20 relative bg-grid-pattern border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-b from-white to-emerald-50/70 rounded-3xl p-8 sm:p-12 border-2 border-emerald-500/40 relative glow-emerald-lg overflow-hidden shadow-2xl">
+                <!-- Top Badge -->
+                <div class="text-center mb-8">
+                    <span class="inline-block bg-emerald-100 text-emerald-800 font-extrabold text-xs uppercase px-4 py-1.5 rounded-full border border-emerald-300 mb-4">
+                        Limited Time Special Offer
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+                        Transform Your Routines Today
+                    </h2>
+                    <p class="text-slate-600 mt-3 text-base sm:text-lg">Get instant lifetime access to the complete Google Sheet Habit Tracker.</p>
+                </div>
+
+                <!-- Price Box -->
+                <div class="bg-white rounded-2xl p-6 text-center max-w-md mx-auto mb-8 border border-slate-200 shadow-xl">
+                    <div class="text-slate-400 text-sm font-medium line-through mb-1">Regular Price: $29.00</div>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <span class="text-4xl sm:text-6xl font-extrabold text-emerald-600">$9</span>
+                        <span class="text-slate-600 text-sm font-semibold">/ One-time</span>
+                    </div>
+                    <div class="inline-flex items-center gap-1.5 text-xs text-amber-800 font-bold bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+                        <i class="fa-solid fa-clock text-amber-600"></i> Offer ends in <span class="countdown-timer font-mono">14:59</span>
+                    </div>
+                </div>
+
+                <!-- Feature Checklist -->
+                <div class="max-w-md mx-auto space-y-3 text-sm text-slate-700 mb-8 font-medium">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
+                        <span>Full Interactive 2027 Google Sheet Template</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
+                        <span>Automated Donut Charts & Habit Progress Bars</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
+                        <span>Weekly & Monthly Task Analytics Summaries</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
+                        <span>Mobile App Setup Guide & Shortcuts</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
+                        <span>Lifetime Access & Free Updates</span>
+                    </div>
+                </div>
+
+                <!-- Final CTA Button -->
+                <div class="text-center max-w-md mx-auto">
+                    <a href="#checkout" class="cta-btn btn-pulse w-full inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-lg sm:text-xl py-4 px-8 rounded-2xl transition-all shadow-xl hover:shadow-emerald-600/30">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>Get Instant Access Now — $9</span>
+                    </a>
+                    <div class="mt-4 flex items-center justify-center gap-4 text-xs text-slate-500">
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-emerald-600"></i> 256-Bit SSL Encryption</span>
+                        <span>•</span>
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-rotate-left text-emerald-600"></i> 30-Day Guarantee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FOOTER -->
+    <footer class="border-t border-slate-200 bg-slate-900 py-12 text-slate-400 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center gap-2 font-bold text-white text-base">
+                <i class="fa-solid fa-table-cells text-emerald-400"></i> HabitTrack Pro
+            </div>
+            <p class="max-w-xl mx-auto text-slate-400 text-xs">
+                Disclaimer: Google Sheets is a registered trademark of Google LLC. HabitTrack Pro is an independent productivity template and is not affiliated with Google LLC.
+            </p>
+            <div class="flex justify-center gap-6 text-xs text-slate-300 pt-2">
+                <a href="#" class="hover:text-emerald-400">Privacy Policy</a>
+                <a href="#" class="hover:text-emerald-400">Terms of Service</a>
+                <a href="#" class="hover:text-emerald-400">Contact Support</a>
+            </div>
+            <p class="text-slate-500 text-[11px]">© 2027 HabitTrack Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 12. STICKY MOBILE BOTTOM CTA BAR -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-t border-slate-200 p-3 md:hidden shadow-2xl">
+        <div class="flex items-center justify-between gap-3 max-w-md mx-auto">
+            <div>
+                <div class="text-[10px] uppercase font-extrabold text-emerald-700 tracking-wider">70% Off Today</div>
+                <div class="flex items-baseline gap-1.5">
+                    <span class="text-xl font-extrabold text-slate-900">$9</span>
+                    <span class="text-xs text-slate-400 line-through">$29</span>
+                </div>
+            </div>
+            <a href="#pricing" class="cta-btn flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm py-2.5 px-4 rounded-xl shadow-lg shadow-emerald-600/20">
+                <span>Get Instant Access</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

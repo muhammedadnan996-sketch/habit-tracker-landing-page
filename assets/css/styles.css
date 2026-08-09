@@ -1,0 +1,129 @@
+/* Light Theme Styling & Utilities for Habit Tracker Landing Page */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #f8fafc;
+    color: #0f172a;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+/* Background Gradients & Grid Pattern */
+.bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+}
+
+.glow-emerald {
+    box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.25);
+}
+
+.glow-emerald-lg {
+    box-shadow: 0 20px 60px -15px rgba(16, 185, 129, 0.3);
+}
+
+/* Light Glassmorphism & Cards */
+.light-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.light-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.light-card-hover:hover {
+    transform: translateY(-4px);
+    border-color: #10b981;
+    box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.15);
+}
+
+/* Text Gradients for Light Theme */
+.text-gradient-emerald {
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+    background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom CTA Button Pulse */
+@keyframes ctaPulseLight {
+    0%, 100% {
+        box-shadow: 0 0 20px 2px rgba(16, 185, 129, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 35px 6px rgba(16, 185, 129, 0.65);
+    }
+}
+
+.btn-pulse {
+    animation: ctaPulseLight 2.5s infinite;
+}
+
+/* FAQ Accordion Transitions */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 600px;
+    opacity: 1;
+    transition: max-height 0.35s cubic-bezier(1, 0, 1, 0), opacity 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+}
+
+/* Dashboard Frame Light */
+.dashboard-frame {
+    position: relative;
+    border-radius: 16px;
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(6, 182, 212, 0.3), rgba(226, 232, 240, 0.8));
+}
+.dashboard-frame-inner {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+}
