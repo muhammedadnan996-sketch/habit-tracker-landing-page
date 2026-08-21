@@ -72,7 +72,8 @@
             <span class="inline-flex items-center gap-1.5 bg-blue-600 text-white px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wide border border-blue-400">
                 <i class="fa-solid fa-fire"></i> SPECIAL OFFER
             </span>
-            <span>🔥 <strong>LIMITED TIME DISCOUNT</strong> — Instant Lifetime Access for Just <strong class="text-amber-300 text-base font-black">$8.90</strong></span>
+            <span class="hidden sm:inline">🔥 <strong>LIMITED TIME DISCOUNT</strong> — Instant Lifetime Access for Just <strong class="text-amber-300 text-base font-black">$8.90</strong></span>
+            <span class="sm:hidden">🔥 <strong>LIFETIME ACCESS</strong> — <strong class="text-amber-300 text-base font-black">$8.90</strong></span>
             <span class="hidden sm:inline-block text-emerald-200">•</span>
             <span class="inline-flex items-center gap-1.5 font-mono font-bold bg-slate-900/30 px-2.5 py-0.5 rounded text-emerald-100">
                 <i class="fa-regular fa-clock"></i> <span class="countdown-timer">14:59</span>
@@ -270,7 +271,7 @@
                 <div class="light-card rounded-2xl p-8 border border-slate-200 bg-white">
                     <div class="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
                         <h3 class="text-xl font-extrabold text-stone-800 flex items-center gap-3">
-                            <span class="text-xs font-bold bg-[#FEF2F2] text-[#DC2626] px-3 py-1 rounded-full border border-red-100">92% Failure Rate</span>
+                            <span class="text-xs font-bold bg-[#FEF2F2] text-[#DC2626] px-3 py-1 rounded-full border border-red-100 whitespace-nowrap">92% Failure Rate</span>
                             The Old Way
                         </h3>
                     </div>
@@ -416,75 +417,85 @@
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <!-- Review 1 -->
-                <div class="light-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-amber-500 text-sm mb-4 gap-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+            <div class="review-carousel-container overflow-hidden relative max-w-6xl mx-auto pb-8">
+                <div class="review-slides flex transition-transform duration-500 ease-in-out">
+                    <!-- Review 1 -->
+                    <div class="review-slide w-full md:w-1/3 flex-shrink-0 px-3">
+                        <div class="light-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex text-amber-500 text-sm mb-4 gap-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-stone-700 text-sm sm:text-base leading-relaxed italic mb-6">
+                                    "I’ve tried Notion templates, mobile apps, and paper journals. Nothing stuck until this. Being able to see my monthly progress ring hit 87% keeps me accountable every single night."
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-stone-200 flex items-center justify-between">
+                                <div>
+                                    <div class="font-extrabold text-sm text-charcoal">Marcus T.</div>
+                                    <div class="text-xs text-stone-500">Founder</div>
+                                </div>
+                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">Verified Buyer</span>
+                            </div>
                         </div>
-                        <p class="text-stone-700 text-sm sm:text-base leading-relaxed italic mb-6">
-                            "I’ve tried Notion templates, mobile apps, and paper journals. Nothing stuck until this. Being able to see my monthly progress ring hit 87% keeps me accountable every single night."
-                        </p>
                     </div>
-                    <div class="pt-4 border-t border-stone-200 flex items-center justify-between">
-                        <div>
-                            <div class="font-extrabold text-sm text-charcoal">Marcus T.</div>
-                            <div class="text-xs text-stone-500">Founder</div>
-                        </div>
-                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">Verified Buyer</span>
-                    </div>
-                </div>
 
-                <!-- Review 2 -->
-                <div class="light-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-amber-500 text-sm mb-4 gap-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                    <!-- Review 2 -->
+                    <div class="review-slide w-full md:w-1/3 flex-shrink-0 px-3">
+                        <div class="light-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex text-amber-500 text-sm mb-4 gap-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-stone-700 text-sm sm:text-base leading-relaxed italic mb-6">
+                                    "The automated weekly breakdown is a game changer. Takes me literally 20 seconds at night to check off my daily habits. Super clean design."
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-stone-200 flex items-center justify-between">
+                                <div>
+                                    <div class="font-extrabold text-sm text-charcoal">Sarah K.</div>
+                                    <div class="text-xs text-stone-500">Designer</div>
+                                </div>
+                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">Verified Buyer</span>
+                            </div>
                         </div>
-                        <p class="text-stone-700 text-sm sm:text-base leading-relaxed italic mb-6">
-                            "The automated weekly breakdown is a game changer. Takes me literally 20 seconds at night to check off my daily habits. Super clean design."
-                        </p>
                     </div>
-                    <div class="pt-4 border-t border-stone-200 flex items-center justify-between">
-                        <div>
-                            <div class="font-extrabold text-sm text-charcoal">Sarah K.</div>
-                            <div class="text-xs text-stone-500">Designer</div>
-                        </div>
-                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">Verified Buyer</span>
-                    </div>
-                </div>
 
-                <!-- Review 3 -->
-                <div class="light-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex text-amber-500 text-sm mb-4 gap-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                    <!-- Review 3 -->
+                    <div class="review-slide w-full md:w-1/3 flex-shrink-0 px-3">
+                        <div class="light-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex text-amber-500 text-sm mb-4 gap-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="text-stone-700 text-sm sm:text-base leading-relaxed italic mb-6">
+                                    "No monthly subscription fees is huge. Bought it once for $8.90, duplicated the sheet for the whole year. Best $ design I've bought."
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-stone-200 flex items-center justify-between">
+                                <div>
+                                    <div class="font-extrabold text-sm text-charcoal">David L.</div>
+                                    <div class="text-xs text-stone-500">Software Engineer</div>
+                                </div>
+                                <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">Verified Buyer</span>
+                            </div>
                         </div>
-                        <p class="text-stone-700 text-sm sm:text-base leading-relaxed italic mb-6">
-                            "No monthly subscription fees is huge. Bought it once for $8.90, duplicated the sheet for the whole year. Best $ design I've bought."
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-stone-200 flex items-center justify-between">
-                        <div>
-                            <div class="font-extrabold text-sm text-charcoal">David L.</div>
-                            <div class="text-xs text-stone-500">Software Engineer</div>
-                        </div>
-                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">Verified Buyer</span>
                     </div>
                 </div>
+                <!-- Review Dots -->
+                <div class="review-dots flex justify-center gap-2 mt-6"></div>
             </div>
         </div>
     </section>
@@ -576,7 +587,7 @@
 
             <div class="space-y-4">
                 <!-- Q1 -->
-                <div class="faq-item light-card rounded-2xl border border-stone-200">
+                <div class="faq-item active light-card rounded-2xl border border-stone-200">
                     <button class="faq-header w-full px-6 py-5 text-left flex items-center justify-between font-extrabold text-base sm:text-lg text-charcoal hover:text-blue-600 transition-colors">
                         <span>Do I need a paid Google account?</span>
                         <i class="fa-solid fa-chevron-down faq-icon text-blue-600 text-sm"></i>

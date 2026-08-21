@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
+    initReviewCarousel();
     initFAQAccordion();
     initCountdownTimer();
     initPurchaseToasts();
@@ -63,6 +64,59 @@ function initCarousel() {
     setInterval(() => {
         goToSlide(currentIndex + 1);
     }, 6000);
+}
+
+/**
+ * 1.5 REVIEW CAROUSEL
+ * Controls the review section slider
+ */
+function initReviewCarousel() {
+    const slidesContainer = document.querySelector('.review-slides');
+    const slides = document.querySelectorAll('.review-slide');
+    const dotsContainer = document.querySelector('.review-dots');
+
+    if (!slidesContainer || !slides.length) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    // Create pagination dots
+    if (dotsContainer && !dotsContainer.children.length) {
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    const updateDots = () => {
+        if (!dotsContainer) return;
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === currentIndex);
+        });
+    };
+
+    const goToSlide = (index) => {
+        currentIndex = (index + totalSlides) % totalSlides;
+        
+        // Calculate offset based on the actual width of a single slide
+        const slideWidth = slides[0].offsetWidth;
+        slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        updateDots();
+    };
+
+    // Auto-advance slide every 5 seconds
+    setInterval(() => {
+        goToSlide(currentIndex + 1);
+    }, 5000);
+
+    // Re-adjust position on window resize
+    window.addEventListener('resize', () => {
+        goToSlide(currentIndex);
+    });
 }
 
 /**
@@ -132,10 +186,56 @@ function initPurchaseToasts() {
     if (!toast) return;
 
     const samplePurchases = [
-        { name: "Marcus T.", location: "Founder • San Francisco", time: "2 mins ago" },
-        { name: "Sarah K.", location: "Designer • London", time: "5 mins ago" },
-        { name: "David L.", location: "Engineer • New York", time: "1 min ago" },
-        { name: "Jessica R.", location: "Executive • Chicago", time: "4 mins ago" }
+        { name: "Aisha M.", location: "Dubai", time: "1 min ago" },
+        { name: "Chen W.", location: "Singapore", time: "3 mins ago" },
+        { name: "Mateo R.", location: "Mexico City", time: "4 mins ago" },
+        { name: "Fatima Z.", location: "Casablanca", time: "2 mins ago" },
+        { name: "Oliver S.", location: "Sydney", time: "5 mins ago" },
+        { name: "Priya K.", location: "Mumbai", time: "1 min ago" },
+        { name: "Elias N.", location: "Berlin", time: "2 mins ago" },
+        { name: "Chloe T.", location: "Paris", time: "4 mins ago" },
+        { name: "Hiroshi T.", location: "Tokyo", time: "3 mins ago" },
+        { name: "Kwame O.", location: "Accra", time: "6 mins ago" },
+        { name: "Elena V.", location: "Madrid", time: "2 mins ago" },
+        { name: "Youssef B.", location: "Cairo", time: "4 mins ago" },
+        { name: "Isabella G.", location: "Rome", time: "1 min ago" },
+        { name: "Wei C.", location: "Shanghai", time: "5 mins ago" },
+        { name: "Amir H.", location: "Tehran", time: "3 mins ago" },
+        { name: "Sofia P.", location: "Sao Paulo", time: "2 mins ago" },
+        { name: "Ivan S.", location: "Moscow", time: "7 mins ago" },
+        { name: "Aarav P.", location: "Delhi", time: "1 min ago" },
+        { name: "Nia B.", location: "Atlanta", time: "4 mins ago" },
+        { name: "Diego M.", location: "Bogota", time: "2 mins ago" },
+        { name: "Zara A.", location: "London", time: "5 mins ago" },
+        { name: "Lucas F.", location: "Lisbon", time: "3 mins ago" },
+        { name: "Hassan I.", location: "Istanbul", time: "1 min ago" },
+        { name: "Mei L.", location: "Hong Kong", time: "4 mins ago" },
+        { name: "Santiago L.", location: "Buenos Aires", time: "2 mins ago" },
+        { name: "Layla M.", location: "Amman", time: "6 mins ago" },
+        { name: "Arthur C.", location: "Brussels", time: "3 mins ago" },
+        { name: "Riya S.", location: "Bangalore", time: "1 min ago" },
+        { name: "Tariq F.", location: "Riyadh", time: "5 mins ago" },
+        { name: "Emma H.", location: "Toronto", time: "2 mins ago" },
+        { name: "Jin-Woo L.", location: "Seoul", time: "4 mins ago" },
+        { name: "Camila D.", location: "Santiago", time: "3 mins ago" },
+        { name: "Omar K.", location: "Beirut", time: "1 min ago" },
+        { name: "Nina K.", location: "Vienna", time: "6 mins ago" },
+        { name: "Arjun D.", location: "Chennai", time: "2 mins ago" },
+        { name: "Zoe W.", location: "Auckland", time: "4 mins ago" },
+        { name: "Mohammed A.", location: "Doha", time: "3 mins ago" },
+        { name: "Eva J.", location: "Stockholm", time: "1 min ago" },
+        { name: "Kenji M.", location: "Kyoto", time: "5 mins ago" },
+        { name: "Mariam Y.", location: "Kuwait City", time: "2 mins ago" },
+        { name: "Felix M.", location: "Zurich", time: "4 mins ago" },
+        { name: "Ananya R.", location: "Hyderabad", time: "3 mins ago" },
+        { name: "Liam O.", location: "Dublin", time: "1 min ago" },
+        { name: "Nour S.", location: "Tunis", time: "6 mins ago" },
+        { name: "Valentina O.", location: "Lima", time: "2 mins ago" },
+        { name: "Yuki S.", location: "Osaka", time: "4 mins ago" },
+        { name: "Ali R.", location: "Karachi", time: "3 mins ago" },
+        { name: "Mia L.", location: "Vancouver", time: "1 min ago" },
+        { name: "Kofi A.", location: "Nairobi", time: "5 mins ago" },
+        { name: "Isla B.", location: "Edinburgh", time: "2 mins ago" }
     ];
 
     let index = 0;
@@ -152,8 +252,11 @@ function initPurchaseToasts() {
 
         toast.classList.add('show');
 
+        // Hide after 5 seconds, then wait a random 10-30s before showing the next one
         setTimeout(() => {
             toast.classList.remove('show');
+            const nextInterval = Math.floor(Math.random() * (30000 - 10000 + 1) + 10000);
+            setTimeout(showToast, nextInterval);
         }, 5000);
 
         index = (index + 1) % samplePurchases.length;
@@ -161,7 +264,6 @@ function initPurchaseToasts() {
 
     setTimeout(() => {
         showToast();
-        setInterval(showToast, 18000);
     }, 4000);
 
     const closeBtn = toast.querySelector('.toast-close');
