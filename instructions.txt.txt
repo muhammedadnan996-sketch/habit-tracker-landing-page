@@ -1,0 +1,84 @@
+Build a high-converting, mobile-first responsive landing page for a digital product called "Ultimate Habit & Progress Tracker Dashboard" (a Google Sheets / Spreadsheet system). 
+
+### VISUAL & DESIGN SYSTEM
+- Theme: Light Mode / Gender-Neutral Premium Design
+- Typography: Use 'Heming' for headings (fall back to 'Plus Jakarta Sans' if webfont unavailable) and 'Inter' or 'Satoshi' for clean body text.
+- Color Palette:
+  - Background: #F8F9FA (Soft Alabaster)
+  - Surface/Cards: #FFFFFF (Pure White)
+  - Text/Headings: #1A1D20 (Warm Charcoal)
+  - Brand Accent: #3B6E58 (Sage Green)
+  - Primary CTA Button: #D97706 (Amber Gold)
+  - Borders/Dividers: #E5E7EB (Light Stone)
+- UI/UX Rules: Mobile-first layout, sticky CTA bar at the bottom on mobile viewport, high contrast, clean card elevation with soft shadows. Avoid standard AI blue/purple gradients.
+
+---
+
+### SECTION STRUCTURE & HORMOZI-STYLE COPY
+
+#### 1. HERO SECTION (Above the Fold)
+- Announcement Badge: "🔥 SPECIAL OFFER: SAVE 34% TODAY ONLY"
+- Main Headline (H1): "Stop Relying on Willpower. Automate Your Consistency in 30 Seconds a Day."
+- Subheadline: "The complete visual habit tracking ecosystem built inside Google Sheets. Transform your daily routines into visual progress without monthly app subscriptions or complex setups."
+- Social Proof Snippet: "⭐⭐⭐⭐⭐ 4.9/5 Rating | Trusted by 1,200+ High Performers"
+- Primary CTA Button: "CLAIM YOUR 34% DISCOUNT NOW →" (Sticky on Mobile)
+- Sub-text under CTA: "Instant Digital Access • No Subscription • 100% Risk-Free"
+- Hero Image Placeholder: 
+  - Render a clean placeholder box with aspect ratio 16:9.
+  - Dimensions display text inside box: "HERO PREVIEW IMAGE (RECOMMENDED SIZE: 1200 x 675 px - Mobile/Desktop Dashboard Overview)"
+
+---
+
+#### 2. THE PROBLEM vs. SOLUTION (Hormozi Value Stack)
+- Section Headline: "Why 92% of Habit Trackers Fail (And Why This One Works)"
+- Side-by-Side Card Comparison:
+  - Card A (Old Way): "Clunky mobile apps, mandatory monthly subscriptions, zero visual motivation, data hidden behind paywalls."
+  - Card B (The Dashboard Way): "One-time payment, automatic monthly/weekly percentage breakdown, visual completion rings, zero lag."
+
+---
+
+#### 3. CORE FEATURES & VISUAL PROOF (Feature Showcase)
+Structure these into 3 distinct feature cards. Each card must include a blank image placeholder with the exact dimensions printed inside:
+
+- Feature 1: "Real-Time Visual Completion Analytics"
+  - Copy: "See your daily, weekly, and monthly success rates automatically calculated. Watching your progress completion percentage tick up triggers natural dopamine hits that make habit consistency effortless."
+  - Image Placeholder Text: "FEATURE 1 IMAGE (RECOMMENDED SIZE: 800 x 500 px - Daily Progress Rings & Analytics Chart)"
+
+- Feature 2: "Weekly & Monthly Habit Breakdown"
+  - Copy: "Drill down into specific week-by-week trends. Identify exactly which days you slack off and pinpoint your best performing weeks with automated bar charts and completion heatmaps."
+  - Image Placeholder Text: "FEATURE 2 IMAGE (RECOMMENDED SIZE: 800 x 500 px - Weekly Progress Bar Breakdown)"
+
+- Feature 3: "Automated Habit Leaderboard & Top 10 Tracking"
+  - Copy: "Focus on what moves the needle. The dashboard automatically ranks your Top 10 habits by completion rate so you know where you're winning and where you need adjustment."
+  - Image Placeholder Text: "FEATURE 3 IMAGE (RECOMMENDED SIZE: 800 x 500 px - Top 10 Habits Ranking Table)"
+
+---
+
+#### 4. REVIEWS & SOCIAL PROOF SECTION
+- Section Title: "What High Performers Are Saying"
+- Review Grid (3 Grid Cards):
+  - Review 1: ⭐⭐⭐⭐⭐ "I’ve tried Notion templates, mobile apps, and paper journals. Nothing stuck until this. Being able to see my monthly progress ring hit 87% keeps me accountable every single night." — Marcus T., Founder
+  - Review 2: ⭐⭐⭐⭐⭐ "The automated weekly breakdown is a game changer. Takes me literally 20 seconds at night to check off my daily habits. Super clean design." — Sarah K., Designer
+  - Review 3: ⭐⭐⭐⭐⭐ "No monthly subscription fees is huge. Bought it once, duplicated the sheet for the whole year. Best $ design I've bought." — David L., Software Engineer
+
+---
+
+#### 5. PRICING & OFFER STACK (Grand Finale Offer)
+- Offer Box Card (Highlighted with #3B6E58 border):
+  - Headline: "Get Lifetime Access to the Habit Tracking System"
+  - Price Anchor: "Regular Price: ~$45~"
+  - Special Discount Price: "$29 (34% OFF - Limited Time)"
+  - Included Value Stack:
+    - ✔ Instant Download Google Sheets Master Template
+    - ✔ Daily, Weekly & Monthly Visual Dashboard
+    - ✔ Automated Top 10 Habit Analytics Engine
+    - ✔ Video Setup Guide (Under 3 Minutes)
+    - ✔ Free Lifetime Updates
+- CTA Button: "GET INSTANT ACCESS FOR 34% OFF"
+
+---
+
+#### 6. FREQUENTLY ASKED QUESTIONS (Accordion Layout)
+- Q: "Do I need a paid Google account?" → A: "No! Works on any free Google account on mobile, tablet, or desktop."
+- Q: "How long does setup take?" → A: "Under 2 minutes. Duplicate the sheet, enter your custom habits, and start tracking immediately."
+- Q: "How do I get the 34% discount?" → A: "The discount is automatically applied when you click any button on this page today."

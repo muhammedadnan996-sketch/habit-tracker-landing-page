@@ -1,44 +1,48 @@
-/* Light Theme Styling & Utilities for Habit Tracker Landing Page */
+/* Light Mode Premium Design - Ultimate Habit & Progress Tracker Dashboard */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
 
 :root {
-    --font-heading: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bg-alabaster: #F8F9FA;
+    --bg-surface: #FFFFFF;
+    --text-charcoal: #1A1D20;
+    --text-muted: #4B5563;
+    --brand-sage: #3B6E58;
+    --brand-sage-light: #EBF4F0;
+    --cta-blue: #2563EB;
+    --cta-blue-hover: #1D4ED8;
+    --cta-blue-glow: rgba(37, 99, 235, 0.35);
+    --border-stone: #E5E7EB;
+    --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 20px 30px -10px rgba(37, 99, 235, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: var(--font-body);
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: var(--bg-alabaster);
+    color: var(--text-charcoal);
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    color: var(--text-charcoal);
 }
 
-/* Background Gradients & Grid Pattern */
-.bg-grid-pattern {
-    background-size: 40px 40px;
-    background-image: 
-        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-}
-
-.glow-emerald {
-    box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.25);
-}
-
-.glow-emerald-lg {
-    box-shadow: 0 20px 60px -15px rgba(16, 185, 129, 0.3);
-}
-
-/* Light Glassmorphism & Cards */
+/* Custom Cards */
 .light-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-stone);
+    box-shadow: var(--shadow-soft);
 }
 
 .light-card-hover {
@@ -47,35 +51,154 @@ h1, h2, h3, h4, h5, h6 {
 
 .light-card-hover:hover {
     transform: translateY(-4px);
-    border-color: #10b981;
-    box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.15);
+    border-color: var(--cta-blue);
+    box-shadow: var(--shadow-hover);
 }
 
-/* Text Gradients for Light Theme */
-.text-gradient-emerald {
-    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* Positive Royal Blue CTA Button */
+.btn-cta-blue {
+    background-color: var(--cta-blue);
+    color: #FFFFFF;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4);
 }
 
-.text-gradient-cyan {
-    background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.btn-cta-blue:hover {
+    background-color: var(--cta-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px -4px rgba(37, 99, 235, 0.6);
 }
 
-/* Custom CTA Button Pulse */
-@keyframes ctaPulseLight {
+@keyframes ctaPulseBlue {
     0%, 100% {
-        box-shadow: 0 0 20px 2px rgba(16, 185, 129, 0.4);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
     }
     50% {
-        box-shadow: 0 0 35px 6px rgba(16, 185, 129, 0.65);
+        box-shadow: 0 0 0 12px rgba(37, 99, 235, 0);
     }
 }
 
 .btn-pulse {
-    animation: ctaPulseLight 2.5s infinite;
+    animation: ctaPulseBlue 2.4s infinite;
+}
+
+/* Sage Accent Utilities */
+.bg-sage-light {
+    background-color: var(--brand-sage-light);
+}
+
+.text-sage {
+    color: var(--brand-sage);
+}
+
+.border-sage {
+    border-color: var(--brand-sage);
+}
+
+/* Dashboard Mockup & Placeholder Box Styling */
+.dashboard-frame {
+    position: relative;
+    border-radius: 16px;
+    padding: 6px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(59, 110, 88, 0.2), rgba(229, 231, 235, 0.8));
+}
+
+.dashboard-frame-inner {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+/* Placeholder Frame Graphic Box */
+.placeholder-box {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 2px dashed #cbd5e1;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.placeholder-box:hover {
+    border-color: var(--cta-blue);
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+
+/* Interactive Image Carousel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+    background: var(--cta-blue);
+    color: #FFFFFF;
+    border-color: var(--cta-blue);
+}
+
+.carousel-btn.prev {
+    left: 12px;
+}
+
+.carousel-btn.next {
+    right: 12px;
+}
+
+.carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--cta-blue);
+    width: 24px;
+    border-radius: 6px;
 }
 
 /* FAQ Accordion Transitions */
@@ -87,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 600px;
+    max-height: 400px;
     opacity: 1;
     transition: max-height 0.35s cubic-bezier(1, 0, 1, 0), opacity 0.3s ease;
 }
@@ -100,30 +223,72 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.3s ease;
 }
 
+/* Recent Purchase Toast Popup */
+.purchase-toast {
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    z-index: 60;
+    transform: translateY(120%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.purchase-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Checkout Modal Overlay & Stripe Styling */
+.checkout-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 29, 32, 0.7);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.checkout-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-card {
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.checkout-modal.active .modal-card {
+    transform: scale(1);
+}
+
+.stripe-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #F8F9FA;
 }
 ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #D1D5DB;
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #10b981;
-}
-
-/* Dashboard Frame Light */
-.dashboard-frame {
-    position: relative;
-    border-radius: 16px;
-    padding: 8px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(6, 182, 212, 0.3), rgba(226, 232, 240, 0.8));
-}
-.dashboard-frame-inner {
-    border-radius: 12px;
-    overflow: hidden;
-    background: #ffffff;
+    background: var(--cta-blue);
 }
