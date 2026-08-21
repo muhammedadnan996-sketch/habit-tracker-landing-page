@@ -3,17 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
 
 :root {
-    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --bg-alabaster: #F8F9FA;
+    --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Satoshi", "Inter", sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Satoshi", "Inter", sans-serif;
+    --bg-alabaster: #F5F5F7;
     --bg-surface: #FFFFFF;
     --text-charcoal: #1A1D20;
     --text-muted: #4B5563;
     --brand-sage: #3B6E58;
     --brand-sage-light: #EBF4F0;
-    --cta-blue: #2563EB;
-    --cta-blue-hover: #1D4ED8;
-    --cta-blue-glow: rgba(37, 99, 235, 0.35);
+    --cta-blue: #0066CC;
+    --cta-blue-hover: #0F172A;
+    --cta-blue-glow: rgba(0, 102, 204, 0.35);
     --border-stone: #E5E7EB;
     --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
     --shadow-hover: 0 20px 30px -10px rgba(37, 99, 235, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
@@ -31,11 +31,13 @@ body {
     color: var(--text-charcoal);
     overflow-x: hidden;
     line-height: 1.6;
+    letter-spacing: -0.011em;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     color: var(--text-charcoal);
+    letter-spacing: -0.015em;
 }
 
 /* Custom Cards */
@@ -79,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-pulse {
-    animation: ctaPulseBlue 2.4s infinite;
+    /* Removed pulse animation to match clean Apple aesthetic */
 }
 
 /* Sage Accent Utilities */

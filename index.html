@@ -60,13 +60,14 @@
     </script>
 
     <!-- Font Awesome Icons & Custom Styles -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body class="bg-alabaster text-charcoal antialiased selection:bg-blue-600 selection:text-white pb-24 md:pb-0">
 
     <!-- ANNOUNCEMENT STICKY TOP BANNER -->
-    <div class="bg-sage text-white py-2.5 px-4 text-xs sm:text-sm font-bold text-center sticky top-0 z-50 shadow-md border-b border-sage-700">
+    <div class="bg-slate-800 text-white py-2.5 px-4 text-xs sm:text-sm font-bold text-center sticky top-0 z-50 shadow-md border-b border-slate-900">
         <div class="max-w-7xl mx-auto flex items-center justify-center gap-3 flex-wrap">
             <span class="inline-flex items-center gap-1.5 bg-blue-600 text-white px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wide border border-blue-400">
                 <i class="fa-solid fa-fire"></i> SPECIAL OFFER
@@ -185,7 +186,7 @@
                             <span class="ml-2 text-xs font-mono text-stone-600 hidden sm:inline-block">Google Sheets — Interactive Dashboard Preview Carousel</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="stripe-badge"><i class="fa-brands fa-stripe text-blue-600 text-sm"></i> Stripe Verified</span>
+                            <!-- Stripe Verified label removed -->
                         </div>
                     </div>
 
@@ -256,7 +257,7 @@
     </section>
 
     <!-- 2. THE PROBLEM vs. SOLUTION (Hormozi Value Stack) -->
-    <section id="problem-solution" class="py-20 bg-white border-y border-stone-200">
+    <section id="problem-solution" class="py-24 bg-white border-y border-stone-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-black text-charcoal tracking-tight">
@@ -266,59 +267,57 @@
 
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <!-- Card A (Old Way) -->
-                <div class="light-card rounded-3xl p-8 border-red-200 bg-red-50/40">
-                    <div class="flex items-center justify-between mb-6 border-b border-red-200 pb-4">
-                        <h3 class="text-xl font-extrabold text-red-600 flex items-center gap-2">
-                            <i class="fa-solid fa-circle-xmark"></i> The Old Way
+                <div class="light-card rounded-2xl p-8 border border-slate-200 bg-white">
+                    <div class="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
+                        <h3 class="text-xl font-extrabold text-stone-800 flex items-center gap-3">
+                            <span class="text-xs font-bold bg-[#FEF2F2] text-[#DC2626] px-3 py-1 rounded-full border border-red-100">92% Failure Rate</span>
+                            The Old Way
                         </h3>
-                        <span class="text-xs font-mono bg-red-100 text-red-700 px-3 py-1 rounded-full border border-red-200 font-bold">92% Failure Rate</span>
                     </div>
                     <ul class="space-y-4 text-sm sm:text-base text-stone-700">
                         <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-xmark text-red-500 mt-1 text-base font-bold"></i>
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                             <span><strong>Clunky mobile apps</strong> that lock basic features behind mandatory monthly subscriptions.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-xmark text-red-500 mt-1 text-base font-bold"></i>
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                             <span><strong>Mandatory monthly subscriptions</strong> that charge your card forever ($120+/year).</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-xmark text-red-500 mt-1 text-base font-bold"></i>
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                             <span><strong>Zero visual motivation</strong> — boring checkmarks without dopamine progress feedback.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-xmark text-red-500 mt-1 text-base font-bold"></i>
+                            <svg class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                             <span><strong>Data hidden behind paywalls</strong> with zero ability to export or customize.</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Card B (The Dashboard Way) -->
-                <div class="light-card rounded-3xl p-8 border-2 border-blue-600 bg-blue-50/40 shadow-xl relative">
-                    <div class="absolute -top-3.5 right-6 bg-blue-600 text-white text-xs font-black uppercase px-3.5 py-1 rounded-full shadow-md">
-                        Recommended System
-                    </div>
-                    <div class="flex items-center justify-between mb-6 border-b border-blue-200 pb-4">
-                        <h3 class="text-xl font-extrabold text-blue-700 flex items-center gap-2">
-                            <i class="fa-solid fa-circle-check"></i> The Dashboard Way
+                <div class="light-card rounded-2xl p-8 border border-slate-200 bg-white">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 border-b border-slate-100 pb-4 gap-4 sm:gap-0">
+                        <h3 class="text-xl font-extrabold text-stone-800 flex items-center gap-3 flex-wrap">
+                            <span class="text-xs font-bold bg-blue-50 text-[#0066CC] px-3 py-1 rounded-full border border-blue-100 uppercase tracking-wide">Recommended System</span>
+                            The Dashboard Way
                         </h3>
-                        <span class="text-xs font-mono bg-white text-blue-700 px-3.5 py-1 rounded-full border border-blue-200 font-extrabold">$8.90 One-Time Payment</span>
+                        <span class="text-xs font-mono bg-white text-stone-500 px-3.5 py-1 rounded-full border border-slate-200 font-extrabold">$8.90 One-Time</span>
                     </div>
                     <ul class="space-y-4 text-sm sm:text-base text-stone-800 font-medium">
                         <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-blue-600 mt-1 text-base font-black"></i>
+                            <svg class="w-5 h-5 text-[#0066CC] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                             <span><strong>One-time payment of $8.90</strong> for lifetime ownership. Zero monthly charges forever.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-blue-600 mt-1 text-base font-black"></i>
+                            <svg class="w-5 h-5 text-[#0066CC] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                             <span><strong>Automatic monthly & weekly percentage breakdown</strong> calculated instantly.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-blue-600 mt-1 text-base font-black"></i>
+                            <svg class="w-5 h-5 text-[#0066CC] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                             <span><strong>Visual completion rings</strong> that trigger natural dopamine for effortless consistency.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-blue-600 mt-1 text-base font-black"></i>
+                            <svg class="w-5 h-5 text-[#0066CC] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
                             <span><strong>Zero lag</strong>, 100% private inside your personal Google Drive account.</span>
                         </li>
                     </ul>
@@ -328,7 +327,7 @@
     </section>
 
     <!-- 3. CORE FEATURES & VISUAL PROOF (Feature Showcase) -->
-    <section id="features" class="py-20 relative">
+    <section id="features" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-blue-600 mb-3">Designed for High Performers</h2>
@@ -409,7 +408,7 @@
     </section>
 
     <!-- 4. REVIEWS & SOCIAL PROOF SECTION -->
-    <section id="reviews" class="py-20 bg-white border-y border-stone-200">
+    <section id="reviews" class="py-24 bg-white border-y border-stone-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-black text-charcoal tracking-tight">
@@ -491,7 +490,7 @@
     </section>
 
     <!-- 5. PRICING & OFFER STACK (Grand Finale Offer with Stripe Integration) -->
-    <section id="pricing" class="py-20 relative">
+    <section id="pricing" class="py-24 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Offer Box Card (Highlighted with #2563EB border) -->
             <div class="light-card rounded-3xl p-8 sm:p-12 border-2 border-blue-600 relative shadow-2xl bg-white">
@@ -568,7 +567,7 @@
     </section>
 
     <!-- 6. FREQUENTLY ASKED QUESTIONS (Accordion Layout) -->
-    <section id="faq" class="py-20 bg-white border-t border-stone-200">
+    <section id="faq" class="py-24 bg-white border-t border-stone-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-blue-600 mb-3">Clear Answers</h2>
